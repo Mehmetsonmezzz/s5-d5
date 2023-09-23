@@ -11,19 +11,36 @@ const Header = (baslik, tarih, yazi) => {
   //    <span class="temp">{ yazi }</span>
   //  </div>
   //
-}
+
+  const headerDiv = document.createElement("div");
+  headerDiv.classList.add("header");
+  const date = document.createElement("span");
+  date.classList.add("date");
+  const h1 = document.createElement("h1");
+  const temp = document.createElement("span");
+  temp.classList.add("temp");
+  date.textContent = tarih;
+  h1.textContent = baslik;
+  temp.textContent = yazi;
+  headerDiv.appendChild(date);
+  headerDiv.appendChild(h1);
+  headerDiv.appendChild(temp);
+
+  return headerDiv;
+};
 
 const headerEkleyici = (secici) => {
+  const headerItem = Header("Teknoloji Zamanı", "30 Nisan", "65°");
+  const headerContainer = document.querySelector(secici);
+  headerContainer.appendChild(headerItem);
   // GÖREV 2
   // ---------------------
   // Tek argümanı olarak bir css seçici alan bu fonksiyonu uygulayın.
   // Görev 1'de tanımladığınız Header bileşenini kullanarak bir header oluşturun (baslik,tarih,yazi parametrelerini kendi isteğinize göre belirleyin)
   // Oluşturulan header'i, verilen seçiciyle eşleşen DOM'daki öğeye eklemelidir.
   //
-
-  // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper")) 
+  // İPUCU: querySelector bir string alabilir (bknz: querySelector("#wrapper"))
   // fakat aynı zamanda bir değişken de alabilir (bknz: querySelector(secici))
- 
-}
+};
 
-export { Header, headerEkleyici }
+export { Header, headerEkleyici };
